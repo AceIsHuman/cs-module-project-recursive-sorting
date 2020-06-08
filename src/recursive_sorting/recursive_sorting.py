@@ -37,8 +37,26 @@ def merge_sort(arr):
 
 # implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
-    # Your code here
+    pointer = mid + 1
 
+    if (arr[mid] <= arr[pointer]):
+        return arr
+
+    while (start <= mid and pointer <= end):
+        if (arr[start] <= arr[pointer]):
+            start += 1
+        else:
+            temp = arr[pointer]
+            i = pointer
+
+            while (i != start):
+                arr[i] = arr[i - 1]
+                i -= 1
+            arr[start] = temp
+
+            start += 1
+            mid += 1
+            pointer +=1
 
     return arr
 
